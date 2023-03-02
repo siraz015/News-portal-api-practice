@@ -46,8 +46,8 @@ const showAllNews = (data, name) => {
                             <div class="d-flex gap-3">
                                 <img src="${singleNews.author.img}" class="img-fluid rounded-circle" height="40" width="40">
                                 <div>
-                                    <p class="m-0 p-0">${singleNews.author.name}</p>
-                                    <p class="m-0 p-0">${singleNews.author.published_date}</p>
+                                    <p class="m-0 p-0">${singleNews.author.name ? singleNews.author.name : "Not Available"}</p>
+                                    <p class="m-0 p-0">${singleNews.author.published_date ? singleNews.author.published_date : "Not Available"}</p>
                                 </div>
                             </div>
                             <div class="d-flex gap-2 align-items-center">
@@ -91,7 +91,7 @@ const showDetails = news_data => {
         </div>
         <div class="col-md-12 d-flex flex-column">
             <div class="card-body">
-                <h5 class="card-title">${news_data.title}</h5>
+                <h5 class="card-title">${news_data.title} <span class="badge text-bg-danger">${news_data.others_info.is_trending ? "Trending" : "Not Trending"}</span></h5>
                 <p class="card-text">${news_data.details}...</p>
             </div>
             <div class="card-footer border-0 d-flex justify-content-between align-items-center">
